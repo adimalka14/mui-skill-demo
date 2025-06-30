@@ -1,0 +1,96 @@
+import React, { useState } from 'react';
+
+import { fn } from 'storybook/test';
+import Rating from '../Rating';
+
+export default {
+    title: 'base-component/Rating',
+    component: Rating,
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
+    docs: {
+        description: {
+            component: 'Rating gggg',
+        },
+    },
+    argTypes: {
+        value: { control: 'number' },
+        precision: {
+            control: 'radio',
+            options: [0.5, 1],
+        },
+        disabled: { control: 'boolean' },
+        showLabel: { control: 'boolean' },
+        size: {
+            control: 'radio',
+            options: ['small', 'medium', 'large'],
+        },
+    },
+    args: {
+        onChange: fn(),
+    },
+};
+
+const Template = (args) => <Rating {...args} />;
+
+export const Default = Template.bind({});
+
+export const Interactive = () => {
+    const [value, setValue] = useState(2.5);
+
+    return (
+        <Rating
+            value={value}
+            onChange={(event, newValue) => setValue(newValue)}
+        />
+    );
+};
+
+export const WithoutLabel = Template.bind({});
+WithoutLabel.args = {
+    showLabel: false,
+    value: 2.5,
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+    disabled: true,
+    value: 2.5,
+};
+
+export const Sizes = (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+        <div>
+            <p style={{ margin: 0, fontWeight: 'bold' }}>Small</p>
+            <Rating {...args} value={3} size="small" />
+        </div>
+        <div>
+            <p style={{ margin: 0, fontWeight: 'bold' }}>Medium</p>
+            <Rating {...args} value={3} size="medium" />
+        </div>
+        <div>
+            <p style={{ margin: 0, fontWeight: 'bold' }}>Large</p>
+            <Rating {...args} value={3} size="large" />
+        </div>
+    </div>
+);
+
+export const Precisions = (args) => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+        <div>
+            <p style={{ margin: 0, fontWeight: 'bold' }}>0.5</p>
+            <Rating {...args} value={2.5} precision={0.5} />
+        </div>
+        <div>
+            <p style={{ margin: 0, fontWeight: 'bold' }}>1</p>
+            <Rating {...args} value={3} precision={1} />
+        </div>
+    </div>
+);
+
+export const Empty = Template.bind({});
+Empty.args = {
+    value: 0,
+};

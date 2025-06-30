@@ -1,0 +1,36 @@
+import React, { useState } from 'react';
+
+import './App.css';
+import { ThemeProvider } from './themes/Provider';
+import { useTranslation } from 'react-i18next';
+
+import { Button, AppBar } from './base-component/index.js';
+import RatingDialog from './components/RatingDialog/RatingDialog.jsx';
+
+function App() {
+    const { t } = useTranslation();
+    const [open, setOpen] = useState(false);
+    const [isFeedback, setIsFeedback] = useState(false);
+    const onClose = ({ rate, feedback }) => {
+        rate && setIsFeedback(true);
+        setOpen(false);
+    };
+
+    return (
+        <>
+            <ThemeProvider>
+                <AppBar></AppBar>
+                {!isFeedback ? (
+                    <Button onClick={() => setOpen(true)}>
+                        {t('FEEDBACK')}
+                    </Button>
+                ) : (
+                    <span>{t('THANK_YOU_FOR_FEEDBACK')}</span>
+                )}
+                <RatingDialog onClose={onClose} open={open}></RatingDialog>
+            </ThemeProvider>
+        </>
+    );
+}
+
+export default App;

@@ -1,0 +1,39 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import { default as MuiAvatar } from '@mui/material/Avatar';
+
+export default function Avatar({
+    src,
+    alt,
+    variant = 'circular',
+    size = 40,
+    bgcolor,
+    children,
+    ...props
+}) {
+    return (
+        <MuiAvatar
+            alt={alt}
+            src={src}
+            variant={variant}
+            sx={{
+                bgcolor: bgcolor,
+                width: size,
+                height: size,
+            }}
+            {...props}
+        >
+            {!src && children}
+        </MuiAvatar>
+    );
+}
+
+Avatar.propTypes = {
+    src: PropTypes.string,
+    alt: PropTypes.string,
+    variant: PropTypes.oneOf(['circular', 'rounded', 'square']),
+    size: PropTypes.number,
+    bgcolor: PropTypes.string,
+    children: PropTypes.node,
+};

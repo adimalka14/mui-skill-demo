@@ -1,0 +1,22 @@
+import React, { useState } from 'react';
+
+import { fn } from 'storybook/test';
+import TextField from '../TextField';
+
+export default {
+    title: 'base-component/TextField',
+    component: TextField,
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
+    argTypes: {
+    },
+    args: {
+    },
+};
+
+const Template = (args) => <TextField {...args} />;
+
+export const Default = Template.bind({});
+

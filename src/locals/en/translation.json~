@@ -1,0 +1,20 @@
+{
+  "FEEDBACK": "Feedback",
+  "THANK_YOU_FOR_FEEDBACK": "Thank you for your feedback",
+  "ASK_FOR_RATING": "Please rate your experience",
+  "PLEASE_PROVIDE_FEEDBACK": "Please provide feedback",
+  "SUBMIT": "Submit",
+  "CANCEL": "Cancel",
+  "RATINGS": {
+    "USELESS": "Useless",
+    "USELESS+": "Useless+",
+    "POOR": "Poor",
+    "POOR+": "Poor+",
+    "OK": "Ok",
+    "OK+": "Ok+",
+    "GOOD": "Good",
+    "GOOD+": "Good+",
+    "EXCELLENT": "Excellent",
+    "EXCELLENT+": "Excellent+"
+  }
+}

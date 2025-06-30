@@ -1,0 +1,38 @@
+import React, { useState } from 'react';
+
+import { fn } from 'storybook/test';
+import Tooltip from '../Tooltip';
+
+export default {
+    title: 'base-component/Tooltip',
+    component: Tooltip,
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
+    argTypes: {},
+    args: {
+        title: 'Tooltip',
+    },
+};
+
+const Template = (args) => (
+    <Tooltip {...args}>
+        <div
+            style={{
+                height: '100px',
+                width: '100px',
+                backgroundColor: '#76e2ff',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                border: '1px solid #000000',
+                borderRadius: '4px',
+            }}
+        >
+            Element
+        </div>
+    </Tooltip>
+);
+
+export const Default = Template.bind({});

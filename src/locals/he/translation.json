@@ -1,0 +1,23 @@
+{
+ "SETTINGS": {
+  "DIRECTION": "rtl"
+ },
+ "FEEDBACK": "משוב",
+ "THANK_YOU_FOR_FEEDBACK": "תודה על המשוב שלך!",
+ "ASK_FOR_RATING": "אנא דרג את החוויה שלך",
+ "PLEASE_PROVIDE_FEEDBACK": "אנא ספק משוב",
+ "SUBMIT": "שלח",
+ "CANCEL": "ביטול",
+ "RATINGS": {
+  "USELESS": "גרוע מאוד",
+  "USELESS+": "גרוע",
+  "POOR": "חלש",
+  "POOR+": "חלש+",
+  "OK": "בסדר",
+  "OK+": "בסדר+",
+  "GOOD": "טוב",
+  "GOOD+": "טוב+",
+  "EXCELLENT": "מצוין",
+  "EXCELLENT+": "מצוין+"
+ }
+}
