@@ -7,7 +7,7 @@ import {
     InputAdornment as MuiInputAdornment,
 } from '@mui/material';
 
-import { TEXT_FIELD_TYPES } from './TextField.constants';
+import { TEXT_FIELD_TYPES } from './textField.constants';
 
 export default function TextField({
     id,
