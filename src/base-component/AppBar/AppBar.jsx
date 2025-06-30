@@ -1,74 +1,15 @@
-import React, { useState } from 'react';
-import { default as MuiAppBar } from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import MenuIcon from '@mui/icons-material/Menu';
-import TranslateIcon from '@mui/icons-material/Translate';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import ContrastIcon from '@mui/icons-material/Contrast';
+import React from 'react';
+import { AppBar as MuiAppBar, Box, Toolbar, Typography } from '@mui/material';
+import {
+    Translate as TranslateIcon,
+    Brightness4 as Brightness4Icon,
+    Contrast as ContrastIcon,
+} from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 
 import { useThemeContext } from '../../themes/Provider';
-import Tooltip from '../Tooltip/Tooltip';
+import { MenuBarButton } from '../MenuBarButton/MenuBarButton';
 
-const SettingsMenu = ({ icon, menuItems = [] }) => {
-    const [anchorEl, setAnchorEl] = useState(null);
-
-    const handleMenu = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
-    return (
-        <div>
-            <IconButton
-                size="large"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-            >
-                {icon}
-            </IconButton>
-            <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                }}
-                open={Boolean(anchorEl)}
-                onClose={handleClose}
-            >
-                {menuItems.map(({ label, onClick, tooltip }, index) => (
-                    <MenuItem
-                        key={index}
-                        onClick={() => {
-                            onClick();
-                            handleClose();
-                        }}
-                    >
-                        <Tooltip title={tooltip} placement="right">
-                            <span style={{ width: '100%' }}>{label}</span>
-                        </Tooltip>
-                    </MenuItem>
-                ))}
-            </Menu>
-        </div>
-    );
-};
 
 export default function AppBar() {
     const { t, i18n } = useTranslation();
@@ -78,15 +19,6 @@ export default function AppBar() {
         <Box sx={{ width: '100%' }}>
             <MuiAppBar position="fixed">
                 <Toolbar variant={'dense'}>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="menu"
-                        sx={{ mr: 2 }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
                     <Typography
                         variant="h6"
                         component="div"
@@ -95,7 +27,7 @@ export default function AppBar() {
                         MUI
                     </Typography>
 
-                    <SettingsMenu
+                    <MenuBarButton
                         icon={<TranslateIcon />}
                         menuItems={[
                             {
@@ -117,7 +49,7 @@ export default function AppBar() {
                         ]}
                     />
 
-                    <SettingsMenu
+                    <MenuBarButton
                         icon={
                             theme === 'dark' ? (
                                 <ContrastIcon />

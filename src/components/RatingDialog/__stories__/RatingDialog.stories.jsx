@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import RatingDialog from '../RatingDialog';
 import { Button } from '../../../base-component';
 import { fn } from 'storybook/test';
-import { useTranslation } from 'react-i18next';
 
 export default {
     title: 'component/RatingDialog',
@@ -17,7 +16,6 @@ export default {
 };
 
 export const Template = (args) => {
-    const { t } = useTranslation();
     const [open, setOpen] = useState(false);
     const onClose = () => {
         setOpen(false);
@@ -25,7 +23,7 @@ export const Template = (args) => {
 
     return (
         <>
-            <Button onClick={() => setOpen(true)}>{t('Feedback')}</Button>
+            <Button onClick={() => setOpen(true)}>Feedback</Button>
             <RatingDialog
                 {...args}
                 onClose={fn(onClose)}

@@ -12,7 +12,6 @@ import {
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import { DndContext, useDraggable } from '@dnd-kit/core';
-import { restrictToWindowEdges } from '@dnd-kit/modifiers';
 
 import Button from '../Button/Button';
 
